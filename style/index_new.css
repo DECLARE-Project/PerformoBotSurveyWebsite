@@ -64,6 +64,11 @@ body {
     color: #282c34;
 }
 
+.btn-start-study {
+    display: table;
+    margin: 0 auto;
+}
+
 .chatbot-box {
     height: 600px;
     width: 100%;
@@ -76,4 +81,8 @@ ol {
 
 a {
     color: #A5D175 !important;
+}
+
+#study-container {
+    display: none;
 }

@@ -16,6 +16,36 @@
         integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="style/index_new.css">
+
+    <script>
+        function toggleStudy() {
+            var container = document.getElementById("study-container");
+            var btn = document.getElementById("start-study-id");
+
+            if (container.style.display === "none" || container.style.display === "") {
+                container.style.display = "block";
+                btn.style.display = "none";
+
+                startCounter();
+            } else {
+                container.style.display = "none";
+                btn.style.display = "block";
+            }
+        }
+
+        function startCounter() {
+            var currentDate = new Date();
+            var counterEndDate = new Date();
+            counterEndDate.setMinutes(currentDate.getMinutes() + 5);
+        }
+
+        function setInterval() {
+            var now = new Date().getTime();
+            var distance 
+        }
+        
+        
+    </script>
 </head>
 
 <body>
@@ -49,9 +79,26 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="textbox">
-                    <h2>We are preparing a study!</h2>
-                    <p>We are preparing a study with which we want to improve and evaluate the usability and comprehensiveness of PerformoBot.</p>
-                    <p>Please come back at a later time if you want to participate!</p>
+                    <h2>Help us to evaluate PerformoBot!</h2>
+                    <p>TODO: Describe our awesome study</p>
+                    <button type="button" id="start-study-id" class="btn btn-primary btn-start-study"
+                        onclick="toggleStudy()">Start</button>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="study-container">
+            <div class="col-sm-8">
+                <div class="textbox">
+                    <h3>Task</h3>
+                    <p> TODO: Text describing our awesome task</p>
+                    <p id="counter"></p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="chatbot-box">
+                    <iframe title="chatbot-window" class="chatbot-window" allow="microphone;" width="100%" height="100%"
+                        src="https://console.dialogflow.com/api-client/demo/embedded/bd792e20-19dd-41eb-9e57-14f40c01c0ce">
+                    </iframe>
                 </div>
             </div>
         </div>
