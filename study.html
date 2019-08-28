@@ -41,10 +41,10 @@
 
         function setInterval() {
             var now = new Date().getTime();
-            var distance 
+            var distance
         }
-        
-        
+
+
     </script>
 </head>
 
@@ -77,21 +77,68 @@
     </nav>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col-sm-8">
                 <div class="textbox">
                     <h2>Help us to evaluate PerformoBot!</h2>
-                    <p>TODO: Describe our awesome study</p>
+                    <p>TODO: Describe our awesome study and how to participate.</p>
+                    <br>
+                    <p>Thank you for participating in our study and helping us to evaluate PerformoBot! The study
+                        consists of two parts and should take around 20 minutes.<br> <br>
+                        As soon as you press the <b>Start</b> button below, you will be presented with a task in which
+                        you have to evaluate the performance of an exemplary software system with the help of
+                        PerformoBot. <br>
+                        You have up to <b>seven minutes</b> to complete the task, which should be enough time to
+                        complete it without a problem. A timer on the left will show you how much time you have left.
+                        <br>
+                        The interaction history with PerformoBot will be saved to evaluate the chatbot. <br> <br>
+                        After you have completed the task or the time is up we will present you a link to a
+                        <b>survey</b>. In the survey we ask you to give us some information about previous experiences
+                        with chatbots or performance evaluations that you might had before participating in the study.
+                        <br>
+                        Furthermore, we will ask you several questions about your interaction with PerformoBot during
+                        the task in order to evaluate the chatbot and improve it in the future. <br>
+                        If you want, you can interact with PerformoBot on the start page while you complete the
+                        survey.<br> <br>
+                        <b>Please complete the survey directly after you completed the task because otherwise it will be
+                            difficult for us to connect your interaction with the chatbot to your answers in the
+                            survey.</b> <br> <br>
+                        Are you ready to start working on the performance evaluation task? Then press the <b>Start</b>
+                        button to begin!
+                    </p>
+                    <br>
+                    <br>
                     <button type="button" id="start-study-id" class="btn btn-primary btn-start-study"
                         onclick="toggleStudy()">Start</button>
                 </div>
             </div>
+            <div class="col-sm-2">
+
+            </div>
         </div>
         <div class="row" id="study-container">
-            <div class="col-sm-8">
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col-sm-4">
                 <div class="textbox">
                     <h3>Task</h3>
-                    <p> TODO: Text describing our awesome task</p>
-                    <p id="counter"></p>
+                    <p align="justify">
+                        Terrible news, next week is the registration period of the university courses! <br><br>
+                        We expect an
+                        unusually high number of concurrent users (~500) to the web service Registr@tion, which handles
+                        the registrations, at the same time. The service is available under
+                        https://registration.uni-stuttgart.edu/login. <br><br> We are not sure whether we provided enough
+                        resources to our servers to cope with that amount of load.
+                        You have been given the task to investigate if our servers can handle this and if they will stay
+                        available throughout this whole registration period. Use Performobot to investigate the problem.
+                        It will support you in evaluating the performance of Registr@tion, so feel free to ask it for
+                        help if you are stuck.
+                    </p>
+                    <!-- <p id="counter"></p> -->
+                    <p>TODO: link to survey, maybe ask if the service can handle the load?</p>
                 </div>
             </div>
             <div class="col-sm-4">
@@ -100,6 +147,9 @@
                         src="https://console.dialogflow.com/api-client/demo/embedded/bd792e20-19dd-41eb-9e57-14f40c01c0ce">
                     </iframe>
                 </div>
+            </div>
+            <div class="col-sm-2">
+
             </div>
         </div>
     </div>
