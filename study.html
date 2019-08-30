@@ -18,6 +18,8 @@
     <link rel="stylesheet" type="text/css" href="style/index_new.css">
 
     <script>
+        var counterEndDate;
+
         function toggleStudy() {
             var container = document.getElementById("study-container");
             var btn = document.getElementById("start-study-id");
@@ -34,16 +36,29 @@
         }
 
         function startCounter() {
+            document.getElementById("counter").innerHTML = "0:10";
+
             var currentDate = new Date();
-            var counterEndDate = new Date();
-            counterEndDate.setMinutes(currentDate.getMinutes() + 5);
-        }
+            counterEndDate = new Date();
+            counterEndDate.setSeconds(currentDate.getSeconds() + 10);
 
-        function setInterval() {
-            var now = new Date().getTime();
-            var distance
-        }
+            var x = setInterval(function () {
+                var now = new Date().getTime();
+                var distance = counterEndDate - now;
 
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("counter").innerHTML = minutes + ":" + seconds;
+
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("counter").innerHTML = "TIME'S UP";
+                    document.getElementById("chatbot-box").style.display = "none";
+                    document.getElementById("survey-box").style.display = "block";
+                }
+            }, 1000);
+        }
 
     </script>
 </head>
@@ -124,28 +139,37 @@
             </div>
             <div class="col-sm-4">
                 <div class="textbox">
-                    <h3>Task</h3>
+                    <div class="task-header">
+                        <h3 id="task-heading">Task</h3>
+                        <h2 id="counter"></h2>
+                    </div>
+                    <br>
                     <p align="justify">
                         Terrible news, next week is the registration period of the university courses! <br><br>
                         We expect an
                         unusually high number of concurrent users (~500) to the web service Registr@tion, which handles
                         the registrations, at the same time. The service is available under
-                        https://registration.uni-stuttgart.edu/login. <br><br> We are not sure whether we provided enough
+                        https://registration.uni-stuttgart.edu/login. <br><br> We are not sure whether we provided
+                        enough
                         resources to our servers to cope with that amount of load.
                         You have been given the task to investigate if our servers can handle this and if they will stay
                         available throughout this whole registration period. Use Performobot to investigate the problem.
                         It will support you in evaluating the performance of Registr@tion, so feel free to ask it for
                         help if you are stuck.
                     </p>
-                    <!-- <p id="counter"></p> -->
                     <p>TODO: link to survey, maybe ask if the service can handle the load?</p>
                 </div>
             </div>
             <div class="col-sm-4">
-                <div class="chatbot-box">
+                <div class="chatbot-box" id="chatbot-box">
                     <iframe title="chatbot-window" class="chatbot-window" allow="microphone;" width="100%" height="100%"
                         src="https://console.dialogflow.com/api-client/demo/embedded/bd792e20-19dd-41eb-9e57-14f40c01c0ce">
                     </iframe>
+                </div>
+                <div class="textbox" id="survey-box">
+                    <p>
+                        Surprise, please complete the survey at LINK
+                    </p>
                 </div>
             </div>
             <div class="col-sm-2">

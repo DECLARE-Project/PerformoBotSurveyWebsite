@@ -83,6 +83,23 @@ a {
     color: #A5D175 !important;
 }
 
+.task-header {
+    width: 100%;
+    display: flex;
+}
+
+#counter {    
+    color: #A5D175;
+}
+
+#task-heading {
+    flex: 1;
+}
+
 #study-container {
+    display: none;
+}
+
+#survey-box {
     display: none;
 }
