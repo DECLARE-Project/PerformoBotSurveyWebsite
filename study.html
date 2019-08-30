@@ -36,13 +36,13 @@
         }
 
         function startCounter() {
-            document.getElementById("counter").innerHTML = "0:10";
+            document.getElementById("counter").innerHTML = "7:00";
 
             var currentDate = new Date();
             counterEndDate = new Date();
-            counterEndDate.setSeconds(currentDate.getSeconds() + 10);
+            counterEndDate.setMinutes(currentDate.getMinutes() + 7);
 
-            var x = setInterval(function () {
+            var interval = setInterval(function () {
                 var now = new Date().getTime();
                 var distance = counterEndDate - now;
 
@@ -52,7 +52,7 @@
                 document.getElementById("counter").innerHTML = minutes + ":" + seconds;
 
                 if (distance < 0) {
-                    clearInterval(x);
+                    clearInterval(interval);
                     document.getElementById("counter").innerHTML = "TIME'S UP";
                     document.getElementById("chatbot-box").style.display = "none";
                     document.getElementById("survey-box").style.display = "block";
@@ -108,17 +108,16 @@
                         You have up to <b>seven minutes</b> to complete the task, which should be enough time to
                         complete it without a problem. A timer on the left will show you how much time you have left.
                         <br>
-                        The interaction history with PerformoBot will be saved to evaluate the chatbot. <br> <br>
-                        After you have completed the task or the time is up we will present you a link to a
-                        <b>survey</b>. In the survey we ask you to give us some information about previous experiences
-                        with chatbots or performance evaluations that you might had before participating in the study.
+                        The interaction history with PerformoBot will be saved to evaluate the chatbot. For that reason, please don't enter any personal data.<br> <br>
+                        After you have completed the task or when the time is up we will present you a link to a
+                        <b>survey</b>. In the survey we ask you to give us some information about previous experience
+                        with chatbots or software performance evaluation that you might had before participating in the study.
                         <br>
-                        Furthermore, we will ask you several questions about your interaction with PerformoBot during
-                        the task in order to evaluate the chatbot and improve it in the future. <br>
+                        Furthermore, we will ask you several questions about your interaction with PerformoBot in order to evaluate the chatbot and improve it in the future. <br>
                         If you want, you can interact with PerformoBot on the start page while you complete the
                         survey.<br> <br>
                         <b>Please complete the survey directly after you completed the task because otherwise it will be
-                            difficult for us to connect your interaction with the chatbot to your answers in the
+                            difficult for us to connect your chatbot interaction with your answers in the
                             survey.</b> <br> <br>
                         Are you ready to start working on the performance evaluation task? Then press the <b>Start</b>
                         button to begin!
@@ -155,9 +154,14 @@
                         You have been given the task to investigate if our servers can handle this and if they will stay
                         available throughout this whole registration period. Use Performobot to investigate the problem.
                         It will support you in evaluating the performance of Registr@tion, so feel free to ask it for
-                        help if you are stuck.
+                        help if you are stuck. <br> <br>
+                        
+                        If you don't know what to say, just start with a simple "Hi". <br><br>
+
+                        Please click the button below to continue with the survey when you have completed the task.
                     </p>
-                    <p>TODO: link to survey, maybe ask if the service can handle the load?</p>
+                    <br>
+                    <button type="button" id="start-survey-id" class="btn btn-primary" onclick="startSurvey()">I'm done, take me to the survey</button>          
                 </div>
             </div>
             <div class="col-sm-4">
