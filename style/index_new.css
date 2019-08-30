@@ -98,6 +98,7 @@ a {
 
 #study-container {
     display: none;
+    margin-bottom: 16px;
 }
 
 #survey-box {
