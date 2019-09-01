@@ -19,6 +19,7 @@
 
     <script>
         var counterEndDate;
+        const surveyLink = "https://forms.gle/2857y7fMzexrkXHk6";
 
         function startCounter() {
             document.getElementById("counter").innerHTML = "7:00";
@@ -37,12 +38,25 @@
                 document.getElementById("counter").innerHTML = minutes + ":" + seconds;
 
                 if (distance < 0) {
+                    // time's up
                     clearInterval(interval);
-                    document.getElementById("counter").innerHTML = "TIME'S UP";
-                    document.getElementById("chatbot-box").style.display = "none";
-                    document.getElementById("survey-box").style.display = "block";
+                    endTask();
                 }
             }, 1000);
+        }
+
+        function loadSurvey() {          
+            window.open(surveyLink, "_self");
+        }
+
+        function endTask() {
+            // Hide study container
+            const studyContainer = document.getElementById("study-container");
+            studyContainer.style.display = "none";
+
+            // Show message and ask user to continue with survey
+            const surveyContainer = document.getElementById("survey-container");
+            surveyContainer.style.display = "block";
         }
 
     </script>
@@ -70,13 +84,14 @@
                         available throughout this whole registration period. Use Performobot to investigate the problem.
                         It will support you in evaluating the performance of Registr@tion, so feel free to ask it for
                         help if you are stuck. <br> <br>
-                        
+
                         If you don't know what to say, just start with a simple "Hi". <br><br>
 
                         Please click the button below to continue with the survey after you have completed the task.
                     </p>
                     <br>
-                    <button type="button" id="start-survey-id" class="btn btn-primary" onclick="startSurvey()">I'm done, take me to the survey</button>          
+                    <button type="button" id="start-survey-id" class="btn btn-primary" onclick="loadSurvey()">I'm done,
+                        take me to the survey</button>
                 </div>
             </div>
             <div class="col-md-4">
@@ -85,10 +100,18 @@
                         src="https://console.dialogflow.com/api-client/demo/embedded/bd792e20-19dd-41eb-9e57-14f40c01c0ce">
                     </iframe>
                 </div>
+            </div>
+        </div>
+        <div class="row" id="survey-container">
+            <div class="col-md-8 col-md-offset-2">
                 <div class="textbox" id="survey-box">
-                    <p>
-                        Surprise, please complete the survey at LINK
-                    </p>
+                   <h3>TIME'S UP</h3>
+                   <p>The time that you had to work on the task has passed. <br><br>
+                    If you couldn't configure the load test and let PerformoBot create a performance report for you, you can access the report <a href="#">here.</a> <br>
+                    Please take a look at it if you haven't yet and try to figure out if the servers are able to handle the load. <br><br>
+                    Afterwards, please continue the study by filling out the survey. <br>
+                   </p>
+                   <button type="button" class="btn btn-primary" onclick="loadSurvey()">Survey</button>
                 </div>
             </div>
         </div>

@@ -101,6 +101,14 @@ a {
     margin-bottom: 16px;
 }
 
-#survey-box {
+#survey-container {
+    margin-top: 70px;
+    margin-bottom: 16px;
     display: none;
+}
+
+#survey-box {
+    display: table;
+    margin: 0 auto;
+    text-align: center;
 }
