@@ -64,6 +64,12 @@ body {
     color: #282c34;
 }
 
+.btn:active, .btn:focus {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 .btn-start-study {
     display: table;
     margin: 0 auto;
