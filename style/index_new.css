@@ -1,6 +1,6 @@
 body {
     background-color: #282c34;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .chatbot-window {
@@ -64,6 +64,17 @@ body {
     color: #282c34;
 }
 
+.btn:active, .btn:focus {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn-start-study {
+    display: table;
+    margin: 0 auto;
+}
+
 .chatbot-box {
     height: 600px;
     width: 100%;
@@ -76,4 +87,34 @@ ol {
 
 a {
     color: #A5D175 !important;
+}
+
+.task-header {
+    width: 100%;
+    display: flex;
+}
+
+#counter {    
+    color: #A5D175;
+}
+
+#task-heading {
+    flex: 1;
+}
+
+#study-container {
+    margin-top: 70px;
+    margin-bottom: 16px;
+}
+
+#survey-container {
+    margin-top: 70px;
+    margin-bottom: 16px;
+    display: none;
+}
+
+#survey-box {
+    display: table;
+    margin: 0 auto;
+    text-align: center;
 }

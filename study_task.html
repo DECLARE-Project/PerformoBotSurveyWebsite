@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>PerformoBot Study</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style/index_new.css">
+
+    <script>
+        var counterEndDate;
+        const surveyLink = "https://forms.gle/2857y7fMzexrkXHk6";
+
+        function startCounter() {
+            document.getElementById("counter").innerHTML = "7:00";
+
+            var currentDate = new Date();
+            counterEndDate = new Date();
+            counterEndDate.setMinutes(currentDate.getMinutes() + 7);
+
+            var interval = setInterval(function () {
+                var now = new Date().getTime();
+                var distance = counterEndDate - now;
+
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("counter").innerHTML = minutes + ":" + seconds;
+
+                if (distance < 0) {
+                    // time's up
+                    clearInterval(interval);
+                    endTask();
+                }
+            }, 200);
+        }
+
+        function loadSurvey() {          
+            window.open(surveyLink, "_self");
+        }
+
+        function endTask() {
+            // Hide study container
+            const studyContainer = document.getElementById("study-container");
+            studyContainer.style.display = "none";
+
+            // Show message and ask user to continue with survey
+            const surveyContainer = document.getElementById("survey-container");
+            surveyContainer.style.display = "block";
+        }
+
+    </script>
+</head>
+
+<body onload="startCounter()">
+    <div class="container-fluid">
+        <div class="row" id="study-container">
+            <div class="col-md-4 col-md-offset-2">
+                <div class="textbox">
+                    <div class="task-header">
+                        <h3 id="task-heading">Task</h3>
+                        <h2 id="counter"></h2>
+                    </div>
+                    <br>
+                    <p align="justify">
+                        Terrible news, next week is the registration period of the university courses! <br><br>
+                        We expect an
+                        unusually high number of concurrent users (~500) to the web service Registr@tion, which handles
+                        the registrations, at the same time. The service is available under
+                        https://registration.uni-stuttgart.edu/login. <br><br> We are not sure whether we provided
+                        enough
+                        resources to our servers to cope with that amount of load.
+                        You have been given the task to investigate if our servers can handle this and if they will stay
+                        available throughout this whole registration period. Use Performobot to investigate the problem.
+                        It will support you in evaluating the performance of Registr@tion, so feel free to ask it for
+                        help if you are stuck. <br> <br>
+
+                        If you don't know what to say, just start with a simple "Hi". <br><br>
+
+                        Please click the button below to continue with the survey after you have completed the task.
+                    </p>
+                    <br>
+                    <button type="button" id="start-survey-id" class="btn btn-primary" onclick="loadSurvey()">I'm done,
+                        take me to the survey</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="chatbot-box" id="chatbot-box">
+                    <iframe title="chatbot-window" class="chatbot-window" allow="microphone;" width="100%" height="100%"
+                        src="https://console.dialogflow.com/api-client/demo/embedded/bd792e20-19dd-41eb-9e57-14f40c01c0ce">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="survey-container">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="textbox" id="survey-box">
+                   <h3>TIME'S UP</h3>
+                   <p>The time that you had to work on the task has passed. <br><br>
+                    The query that you should have created with PerformoBot would have been: <br>
+                    <em>Perform a load test with 500 users at https://registration.uni-stuttgart.edu/login and measure the server status.</em> <br><br>
+                    If you could not configure the load test and let PerformoBot create a performance report for you, you can access the report for the query above <a href="#">here.</a> <br>
+                    Please take a look at it if you haven't yet and try to figure out if the servers are able to handle the load. <br><br>
+                    Afterwards, please continue the study by filling out the survey. <br>
+                   </p>
+                   <button type="button" class="btn btn-primary" onclick="loadSurvey()">Survey</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

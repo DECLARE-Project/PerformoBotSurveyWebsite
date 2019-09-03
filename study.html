@@ -16,6 +16,12 @@
         integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="style/index_new.css">
+
+    <script>
+        function showStudy() {
+            window.open("study_task.html");
+        }
+    </script>
 </head>
 
 <body>
@@ -47,11 +53,35 @@
     </nav>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-md-8 col-md-offset-2">
                 <div class="textbox">
-                    <h2>We are preparing a study!</h2>
-                    <p>We are preparing a study with which we want to improve and evaluate the usability and comprehensiveness of PerformoBot.</p>
-                    <p>Please come back at a later time if you want to participate!</p>
+                    <h2>Help us to evaluate PerformoBot!</h2>                    
+                    <p>Thank you for participating in our study and helping us to evaluate PerformoBot! The study
+                        consists of two parts and should take around 20 minutes.<br> <br>
+                        As soon as you press the <b>Start</b> button below, you will be presented with a task in which
+                        you have to evaluate the performance of an exemplary software system with the help of
+                        PerformoBot. <br>
+                        You have up to <b>seven minutes</b> to complete the task, which should be enough time to
+                        complete it without a problem. A timer on the left will show you how much time you have left.
+                        <br>
+                        The interaction history with PerformoBot will be saved to evaluate the chatbot. For that reason, please don't enter any personal data.<br> <br>
+                        After you have completed the task or when the time is up we will present you a link to a
+                        <b>survey</b>. In the survey we ask you to give us some information about previous experience
+                        with chatbots or software performance evaluation that you might had before participating in the study.
+                        <br>
+                        Furthermore, we will ask you several questions about your interaction with PerformoBot in order to evaluate the chatbot and improve it in the future. <br>
+                        If you want, you can interact with PerformoBot on the start page while you complete the
+                        survey.<br> <br>
+                        <b>Please complete the survey directly after you completed the task because otherwise it will be
+                            difficult for us to connect your chatbot interaction with your answers in the
+                            survey.</b> <br> <br>
+                        Are you ready to start working on the performance evaluation task? Then press the <b>Start</b>
+                        button to begin!
+                    </p>
+                    <br>
+                    <br>
+                    <button type="button" id="start-study-id" class="btn btn-primary btn-start-study"
+                        onclick="showStudy()">Start</button>
                 </div>
             </div>
         </div>
