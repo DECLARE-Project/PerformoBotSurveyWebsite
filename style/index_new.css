@@ -118,3 +118,23 @@ a {
     margin: 0 auto;
     text-align: center;
 }
+
+#task-finished-container {
+    margin-top: 70px;
+    margin-bottom: 16px;
+    display: none;
+}
+
+#task-finished-message {
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#show-report-btn {
+    margin-right: 32px;
+}
+
+#show-survey-btn {
+    margin-left: 32px;
+}
