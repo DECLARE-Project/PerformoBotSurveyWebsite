@@ -18,7 +18,8 @@
     <link rel="stylesheet" type="text/css" href="style/index_new.css">
 
     <script>
-        var counterEndDate;
+    var counterEndDate;
+    var interval;
 	const id = random_id();
 	const surveyLink = "https://docs.google.com/forms/d/e/1FAIpQLSdqrDNt_Jx0F5SGGfq-E4UxNVVlxQPpO7OBYU1b7nhCegVobg/viewform?usp=pp_url&entry.378572693="+ id;
 
@@ -37,7 +38,7 @@
             counterEndDate = new Date();
             counterEndDate.setMinutes(currentDate.getMinutes() + 8);
 
-            var interval = setInterval(function () {
+            interval = setInterval(function () {
                 var now = new Date().getTime();
                 var distance = counterEndDate - now;
 
@@ -60,6 +61,27 @@
 
         function loadSurvey() {          
             window.open(surveyLink);
+        }
+
+        function showReport() {
+            window.open("./report/48b49d70/Report.html");
+
+            const surveyBtn = document.getElementById("show-survey-btn");
+            surveyBtn.disabled = false;
+        }
+
+        function finishTask() {            
+            let finishTask = confirm("Are you sure that you want to finish the task?\n\nPlease only do this if you have either completed the task or are stuck.");
+
+            if (finishTask) {
+                clearInterval(interval);
+
+                const studyContainer = document.getElementById("study-container");
+                studyContainer.style.display = "none";
+
+                const taskFinishedContainer = document.getElementById("task-finished-container");
+                taskFinishedContainer.style.display = "block";
+            }
         }
 
         function endTask() {
@@ -95,11 +117,10 @@
         document.write(id)
       </script>.</b> <br><br>
 
-                        Please click the button below to continue with the survey after you have completed the task.
+                        Please click the button below to continue after you have completed the task. You will be forwarded to an example report that will show the results of the load test and to the second part of the study that consists of a survey.
                     </p>
                     <br>
-                    <button type="button" id="start-survey-id" class="btn btn-primary" onclick="loadSurvey()">I'm done,
-                        take me to the survey</button>
+                    <button type="button" id="start-survey-id" class="btn btn-primary" onclick="finishTask()">I'm done</button>
                 </div>
             </div>
             <div class="col-md-4">
@@ -122,6 +143,24 @@
                     Afterwards, please continue the study by filling out the survey. <br>
                    </p>
                    <button type="button" class="btn btn-primary" onclick="loadSurvey()">Survey</button>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="task-finished-container">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="textbox" id="task-finished-message">
+                    <h3>Thank you for finishing the task!</h3>
+                    <p>After you ask PerformoBot to run the load test that you have configured it would usually present the results to you in the form of a generated report.
+                        To save time, we will show you an example report for the following query: <br> <br>
+                        <em>Perform a load test with 500 users at https://registration.uni-stuttgart.edu/login and measure the server status.</em> <br><br>
+
+                        Please open the report and try to find out if the servers of our Registr@tion service would be able to handle the load. <br> <br>
+                        After you have taken a look at the report come back to this window and click the other button to open the survey which makes up the second part of the study.
+
+                    </p>
+                    <br>
+                    <button type="button" id="show-report-btn" class="btn btn-primary" onclick="showReport()">Show report</button>
+                    <button type="button" id="show-survey-btn" class="btn btn-primary" onclick="loadSurvey()" disabled>Start survey</button>
                 </div>
             </div>
         </div>
