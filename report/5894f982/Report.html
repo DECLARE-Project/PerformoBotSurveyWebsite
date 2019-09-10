@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  
+  
+  
+  
+  
+
+  <title>Performance Report</title>
+
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+  <script type="text/javascript" src="./static/js/jquery.min.js"></script>
+  <script type="text/javascript" src="./static/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="./static/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="./static/css/main.css">
+
+
+  <script type="text/javascript" src="./static/js/highstock.js"></script>
+
+  <script type="text/javascript" src="./static/js/util.js"></script>
+  <script type="text/javascript" src="./static/js/charts.js"></script>
+  <script type="text/javascript" src="./static/js/text.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="./static/css/report.css">
+
+  <script>
+
+    
+
+      $(document).ready(function () {
+        
+        $(document).mouseup(function (e) {
+          var overlay = $(".v-overlay");
+
+          if (overlay.is(e.target)) {
+            overlay.hide();
+          }
+        });
+
+        
+        $('[data-toggle="tooltip"]').tooltip();
+
+        
+        
+
+          chart("elapsed_time", "Elapsed time", {'unit': 'ms', 'type': 'spline', 'data': [[1568129571642, 270], [1568129572766, 242], [1568129573966, 238], [1568129575165, 243], [1568129576365, 236], [1568129577565, 245], [1568129578766, 240], [1568129579966, 247], [1568129581166, 244], [1568129582365, 238], [1568129583565, 245], [1568129584766, 227], [1568129585966, 250], [1568129587165, 228], [1568129588366, 238], [1568129589566, 236], [1568129590766, 231], [1568129591967, 232], [1568129593167, 259], [1568129594366, 244], [1568129595565, 236], [1568129596766, 236], [1568129597966, 247], [1568129599165, 234], [1568129600365, 241], [1568129601565, 233], [1568129602765, 254], [1568129603966, 232], [1568129605165, 238], [1568129606365, 256], [1568129607565, 245], [1568129608766, 229], [1568129609966, 229], [1568129611165, 254], [1568129612365, 247], [1568129613566, 241], [1568129614766, 229], [1568129615965, 227], [1568129617167, 246], [1568129618367, 270], [1568129619566, 236], [1568129620766, 228], [1568129621966, 226], [1568129623166, 236], [1568129624365, 607], [1568129625565, 225], [1568129626766, 224], [1568129627965, 602], [1568129629165, 232], [1568129630366, 255]], 'cumulative': [[224, 2], [225, 4], [226, 6], [227, 8], [227, 10], [228, 12], [228, 14], [229, 16], [229, 18], [229, 20], [231, 22], [232, 24], [232, 26], [232, 28], [233, 30], [234, 32], [236, 34], [236, 36], [236, 38], [236, 40], [236, 42], [236, 44], [238, 46], [238, 48], [238, 50], [238, 52], [240, 54], [241, 56], [241, 58], [242, 60], [243, 62], [244, 64], [244, 66], [245, 68], [245, 70], [245, 72], [246, 74], [247, 76], [247, 78], [247, 80], [250, 82], [254, 84], [254, 86], [255, 88], [256, 90], [259, 92], [270, 94], [270, 96], [602, 98], [607, 100]], 'min': {'ts': 1568129626766, 'val': 224, 'f': 1}, 'max': {'ts': 1568129624365, 'val': 607, 'f': 1}, 'mean': {'val': 254.56}, 'p5': {'val': 226, 'f': 1}, 'p25': {'val': 232, 'f': 3}, 'p50': {'val': 238, 'f': 4}, 'p75': {'val': 247, 'f': 3}, 'p95': {'val': 270, 'f': 2}, 'total': 12728, 'from': 1568129571642, 'to': 1568129630366, 'frequencies': {236: 6, 238: 4, 229: 3}, 'text': {'table': '<thead class="thead"><tr>  <th scope="col"></th>  <th scope="col">Min.</th>  <th scope="col">Max.</th>  <th scope="col">Mean.</th>  <th scope="col">Med.</th></tr></thead><tbody><tr>  <td>Time:</td>  <td>after 55 s 124 ms</td>  <td>after 52 s 723 ms</td>  <td>-</td>  <td>-</td></tr><tr>  <td>Value:</td>  <td style="color: green">224 ms</td>  <td style="color: red">607 ms</td>  <td>254.56 ms</td>  <td>238 ms</td></tr></tbody>', 'explanation': '<b>Info</b>:<br>The elapsed time is the amount of time it takes to send the first request until the last response is received. This metric does not include the time a client is executing code.<br>', 'description': '<b>Summary</b>:<br>The overall minimum was <span class="important">224 ms</span> (after 55 s 124 ms) and the overall maximum was <span class="important">607 ms</span> (after 52 s 723 ms). The maximum of 607 ms and the minimum of 224 ms were recorded exactly <span class="important">once</span> each.<br>'}});
+
+          
+          $("#elapsed_timeAnchor").on('click',
+            function () {
+              $("#otherMetrics").css('display', 'inline-block');
+              $("#elapsed_timeCollapse").css('display', 'inline-block');
+              return true;
+            });
+
+        
+
+          chart("request_status", "Request status", {'unit': '', 'type': 'gauge', 'data': [{'name': '100.0%<br>successful', 'description': 'successful', 'y': 100.0, 'abs': 50, 'sum': 50}], 'text': {'table': '', 'explanation': '<b>Info</b>:<br>If a request does not reach the server or is refused by it, the request was not successful. An unsuccessful request can contain the reason of the refusal as plain text in the response text. Another reason is a faulty connection to the server.<br>', 'description': '<b>Summary</b>:<br><br>'}});
+
+          
+          $("#request_statusAnchor").on('click',
+            function () {
+              $("#otherMetrics").css('display', 'inline-block');
+              $("#request_statusCollapse").css('display', 'inline-block');
+              return true;
+            });
+
+        
+
+          chart("server_status", "Server status", {'unit': '', 'type': 'statusline', 'data': [{'description': 'Online', 'x': 1568129571642, 'y': 1}, {'description': 'Online', 'x': 1568129572766, 'y': 1}, {'description': 'Online', 'x': 1568129573966, 'y': 1}, {'description': 'Online', 'x': 1568129575165, 'y': 1}, {'description': 'Online', 'x': 1568129576365, 'y': 1}, {'description': 'Online', 'x': 1568129577565, 'y': 1}, {'description': 'Online', 'x': 1568129578766, 'y': 1}, {'description': 'Online', 'x': 1568129579966, 'y': 1}, {'description': 'Online', 'x': 1568129581166, 'y': 1}, {'description': 'Online', 'x': 1568129582365, 'y': 1}, {'description': 'Online', 'x': 1568129583565, 'y': 1}, {'description': 'Online', 'x': 1568129584766, 'y': 1}, {'description': 'Online', 'x': 1568129585966, 'y': 1}, {'description': 'Online', 'x': 1568129587165, 'y': 1}, {'description': 'Online', 'x': 1568129588366, 'y': 1}, {'description': 'Online', 'x': 1568129589566, 'y': 1}, {'description': 'Online', 'x': 1568129590766, 'y': 1}, {'description': 'Online', 'x': 1568129591967, 'y': 1}, {'description': 'Online', 'x': 1568129593167, 'y': 1}, {'description': 'Online', 'x': 1568129594366, 'y': 1}, {'description': 'Online', 'x': 1568129595565, 'y': 1}, {'description': 'Online', 'x': 1568129596766, 'y': 1}, {'description': 'Online', 'x': 1568129597966, 'y': 1}, {'description': 'Online', 'x': 1568129599165, 'y': 1}, {'description': 'Online', 'x': 1568129600365, 'y': 1}, {'description': 'Online', 'x': 1568129601565, 'y': 1}, {'description': 'Online', 'x': 1568129602765, 'y': 1}, {'description': 'Online', 'x': 1568129603966, 'y': 1}, {'description': 'Online', 'x': 1568129605165, 'y': 1}, {'description': 'Online', 'x': 1568129606365, 'y': 1}, {'description': 'Online', 'x': 1568129607565, 'y': 1}, {'description': 'Online', 'x': 1568129608766, 'y': 1}, {'description': 'Online', 'x': 1568129609966, 'y': 1}, {'description': 'Online', 'x': 1568129611165, 'y': 1}, {'description': 'Online', 'x': 1568129612365, 'y': 1}, {'description': 'Online', 'x': 1568129613566, 'y': 1}, {'description': 'Online', 'x': 1568129614766, 'y': 1}, {'description': 'Online', 'x': 1568129615965, 'y': 1}, {'description': 'Online', 'x': 1568129617167, 'y': 1}, {'description': 'Online', 'x': 1568129618367, 'y': 1}, {'description': 'Online', 'x': 1568129619566, 'y': 1}, {'description': 'Online', 'x': 1568129620766, 'y': 1}, {'description': 'Online', 'x': 1568129621966, 'y': 1}, {'description': 'Online', 'x': 1568129623166, 'y': 1}, {'description': 'Online', 'x': 1568129624365, 'y': 1}, {'description': 'Online', 'x': 1568129625565, 'y': 1}, {'description': 'Online', 'x': 1568129626766, 'y': 1}, {'description': 'Online', 'x': 1568129627965, 'y': 1}, {'description': 'Online', 'x': 1568129629165, 'y': 1}, {'description': 'Online', 'x': 1568129630366, 'y': 1}], 'min': {'ts': 1568129571642, 'val': 1, 'f': 50}, 'max': {'ts': 1568129571642, 'val': 1, 'f': 50}, 'mean': {'val': 1.0}, 'p5': {'val': 1, 'f': 50}, 'p25': {'val': 1, 'f': 50}, 'p50': {'val': 1, 'f': 50}, 'p75': {'val': 1, 'f': 50}, 'p95': {'val': 1, 'f': 50}, 'total': 50, 'from': 1568129571642, 'to': 1568129630366, 'frequencies': {1: 50}, 'text': {'table': '', 'explanation': '<b>Info</b>:<br>If a request does not reach the server or is refused by it, the request was not successful. An unsuccessful request can contain the reason of the refusal as plain text in the response text. Another reason is a faulty connection to the server.<br>', 'description': '<b>Summary</b>:<br><br>'}});
+
+          
+          $("#server_statusAnchor").on('click',
+            function () {
+              $("#otherMetrics").css('display', 'inline-block');
+              $("#server_statusCollapse").css('display', 'inline-block');
+              return true;
+            });
+
+        
+
+          chart("received_traffic", "Received traffic", {'unit': 'bytes per request', 'type': 'column', 'data': [[1568129571642, 1592], [1568129572766, 1592], [1568129573966, 1608], [1568129575165, 1608], [1568129576365, 1614], [1568129577565, 1614], [1568129578766, 1608], [1568129579966, 1592], [1568129581166, 1592], [1568129582365, 1614], [1568129583565, 1592], [1568129584766, 1592], [1568129585966, 1592], [1568129587165, 1592], [1568129588366, 1614], [1568129589566, 1592], [1568129590766, 1597], [1568129591967, 1592], [1568129593167, 1608], [1568129594366, 1608], [1568129595565, 1608], [1568129596766, 1608], [1568129597966, 1592], [1568129599165, 1608], [1568129600365, 1592], [1568129601565, 1592], [1568129602765, 1608], [1568129603966, 1592], [1568129605165, 1608], [1568129606365, 1614], [1568129607565, 1614], [1568129608766, 1608], [1568129609966, 1608], [1568129611165, 1592], [1568129612365, 1592], [1568129613566, 1614], [1568129614766, 1592], [1568129615965, 1614], [1568129617167, 1592], [1568129618367, 1608], [1568129619566, 1592], [1568129620766, 1592], [1568129621966, 1592], [1568129623166, 1592], [1568129624365, 1608], [1568129625565, 1592], [1568129626766, 1614], [1568129627965, 1592], [1568129629165, 1597], [1568129630366, 1592]], 'cumulative': [], 'min': {'ts': 1568129571642, 'val': 1592, 'f': 25}, 'max': {'ts': 1568129576365, 'val': 1614, 'f': 9}, 'mean': {'val': 1600.64}, 'p5': {'val': 1592, 'f': 25}, 'p25': {'val': 1592, 'f': 25}, 'p50': {'val': 1592, 'f': 25}, 'p75': {'val': 1608, 'f': 14}, 'p95': {'val': 1614, 'f': 9}, 'total': 80032, 'from': 1568129571642, 'to': 1568129630366, 'frequencies': {1592: 25, 1608: 14, 1614: 9}, 'text': {'table': '<thead class="thead"><tr>  <th scope="col"></th>  <th scope="col">Min.</th>  <th scope="col">Max.</th>  <th scope="col">Mean.</th>  <th scope="col">Med.</th></tr></thead><tbody><tr>  <td>Time:</td>  <td>at the beginning</td>  <td>after 4 s 723 ms</td>  <td>-</td>  <td>-</td></tr><tr>  <td>Value:</td>  <td style="color: green">1592 bytes per request</td>  <td style="color: red">1614 bytes per request</td>  <td>1600.64 bytes per request</td>  <td>1592 bytes per request</td></tr></tbody>', 'explanation': '<b>Info</b>:<br>To perform a request, it is necessary to exchange data between client and server. This data consists of header data and meta information, which is needed by the server. The amount of exchanged information is measured in bytes.<br>', 'description': '<b>Summary</b>:<br>The overall minimum was <span class="important">1592 bytes per request</span> (at the beginning) and the overall maximum was <span class="important">1614 bytes per request</span> (after 4 s 723 ms). The maximum of 1614 bytes per request was recorded <span class="important">9 times</span> while the minimum of 1592 bytes per request was recorded <span class="important">25 times</span>.<br>'}});
+
+          
+          $("#received_trafficAnchor").on('click',
+            function () {
+              $("#otherMetrics").css('display', 'inline-block');
+              $("#received_trafficCollapse").css('display', 'inline-block');
+              return true;
+            });
+
+        
+
+          chart("latency", "Latency", {'unit': 'ms', 'type': 'spline', 'data': [[1568129571642, 270], [1568129572766, 242], [1568129573966, 238], [1568129575165, 243], [1568129576365, 236], [1568129577565, 245], [1568129578766, 240], [1568129579966, 247], [1568129581166, 244], [1568129582365, 236], [1568129583565, 245], [1568129584766, 227], [1568129585966, 250], [1568129587165, 228], [1568129588366, 237], [1568129589566, 236], [1568129590766, 231], [1568129591967, 232], [1568129593167, 258], [1568129594366, 241], [1568129595565, 235], [1568129596766, 236], [1568129597966, 247], [1568129599165, 231], [1568129600365, 239], [1568129601565, 231], [1568129602765, 250], [1568129603966, 228], [1568129605165, 238], [1568129606365, 255], [1568129607565, 241], [1568129608766, 229], [1568129609966, 228], [1568129611165, 251], [1568129612365, 246], [1568129613566, 237], [1568129614766, 229], [1568129615965, 227], [1568129617167, 245], [1568129618367, 270], [1568129619566, 236], [1568129620766, 228], [1568129621966, 226], [1568129623166, 236], [1568129624365, 606], [1568129625565, 225], [1568129626766, 224], [1568129627965, 602], [1568129629165, 232], [1568129630366, 250]], 'cumulative': [[224, 2], [225, 4], [226, 6], [227, 8], [227, 10], [228, 12], [228, 14], [228, 16], [228, 18], [229, 20], [229, 22], [231, 24], [231, 26], [231, 28], [232, 30], [232, 32], [235, 34], [236, 36], [236, 38], [236, 40], [236, 42], [236, 44], [236, 46], [237, 48], [237, 50], [238, 52], [238, 54], [239, 56], [240, 58], [241, 60], [241, 62], [242, 64], [243, 66], [244, 68], [245, 70], [245, 72], [245, 74], [246, 76], [247, 78], [247, 80], [250, 82], [250, 84], [250, 86], [251, 88], [255, 90], [258, 92], [270, 94], [270, 96], [602, 98], [606, 100]], 'min': {'ts': 1568129626766, 'val': 224, 'f': 1}, 'max': {'ts': 1568129624365, 'val': 606, 'f': 1}, 'mean': {'val': 253.68}, 'p5': {'val': 226, 'f': 1}, 'p25': {'val': 231, 'f': 3}, 'p50': {'val': 237, 'f': 2}, 'p75': {'val': 246, 'f': 1}, 'p95': {'val': 270, 'f': 2}, 'total': 12684, 'from': 1568129571642, 'to': 1568129630366, 'frequencies': {236: 6, 228: 4, 245: 3}, 'text': {'table': '<thead class="thead"><tr>  <th scope="col"></th>  <th scope="col">Min.</th>  <th scope="col">Max.</th>  <th scope="col">Mean.</th>  <th scope="col">Med.</th></tr></thead><tbody><tr>  <td>Time:</td>  <td>after 55 s 124 ms</td>  <td>after 52 s 723 ms</td>  <td>-</td>  <td>-</td></tr><tr>  <td>Value:</td>  <td style="color: green">224 ms</td>  <td style="color: red">606 ms</td>  <td>253.68 ms</td>  <td>237 ms</td></tr></tbody>', 'explanation': '<b>Info</b>:<br>Latency is the amount of time a message takes to traverse a system. In a computer network, it is an expression of how much time it takes for a packet of data to get from one designated point to another. It is measured as the time required for a request to be sent to the server and returned to its sender. Latency depends on the speed of the transmission medium  and the delays in the transmission by devices along the way. A low latency indicates a high network efficiency.<br>', 'description': '<b>Summary</b>:<br>The overall minimum was <span class="important">224 ms</span> (after 55 s 124 ms) and the overall maximum was <span class="important">606 ms</span> (after 52 s 723 ms). The maximum of 606 ms and the minimum of 224 ms were recorded exactly <span class="important">once</span> each.<br>'}});
+
+          
+          $("#latencyAnchor").on('click',
+            function () {
+              $("#otherMetrics").css('display', 'inline-block');
+              $("#latencyCollapse").css('display', 'inline-block');
+              return true;
+            });
+
+        
+
+          chart("connection_time", "Connection time", {'unit': 'ms', 'type': 'spline', 'data': [[1568129571642, 132], [1568129572766, 116], [1568129573966, 114], [1568129575165, 116], [1568129576365, 118], [1568129577565, 120], [1568129578766, 117], [1568129579966, 121], [1568129581166, 123], [1568129582365, 116], [1568129583565, 111], [1568129584766, 110], [1568129585966, 113], [1568129587165, 110], [1568129588366, 121], [1568129589566, 116], [1568129590766, 113], [1568129591967, 113], [1568129593167, 114], [1568129594366, 118], [1568129595565, 116], [1568129596766, 109], [1568129597966, 122], [1568129599165, 114], [1568129600365, 117], [1568129601565, 110], [1568129602765, 132], [1568129603966, 113], [1568129605165, 116], [1568129606365, 139], [1568129607565, 120], [1568129608766, 111], [1568129609966, 112], [1568129611165, 129], [1568129612365, 109], [1568129613566, 118], [1568129614766, 113], [1568129615965, 111], [1568129617167, 113], [1568129618367, 129], [1568129619566, 115], [1568129620766, 111], [1568129621966, 108], [1568129623166, 115], [1568129624365, 121], [1568129625565, 111], [1568129626766, 110], [1568129627965, 112], [1568129629165, 111], [1568129630366, 115]], 'cumulative': [[108, 2], [109, 4], [109, 6], [110, 8], [110, 10], [110, 12], [110, 14], [111, 16], [111, 18], [111, 20], [111, 22], [111, 24], [111, 26], [112, 28], [112, 30], [113, 32], [113, 34], [113, 36], [113, 38], [113, 40], [113, 42], [114, 44], [114, 46], [114, 48], [115, 50], [115, 52], [115, 54], [116, 56], [116, 58], [116, 60], [116, 62], [116, 64], [116, 66], [117, 68], [117, 70], [118, 72], [118, 74], [118, 76], [120, 78], [120, 80], [121, 82], [121, 84], [121, 86], [122, 88], [123, 90], [129, 92], [129, 94], [132, 96], [132, 98], [139, 100]], 'min': {'ts': 1568129621966, 'val': 108, 'f': 1}, 'max': {'ts': 1568129606365, 'val': 139, 'f': 1}, 'mean': {'val': 116.28}, 'p5': {'val': 109, 'f': 2}, 'p25': {'val': 111, 'f': 6}, 'p50': {'val': 115, 'f': 3}, 'p75': {'val': 118, 'f': 3}, 'p95': {'val': 132, 'f': 2}, 'total': 5814, 'from': 1568129571642, 'to': 1568129630366, 'frequencies': {113: 6, 111: 6, 116: 6}, 'text': {'table': '<thead class="thead"><tr>  <th scope="col"></th>  <th scope="col">Min.</th>  <th scope="col">Max.</th>  <th scope="col">Mean.</th>  <th scope="col">Med.</th></tr></thead><tbody><tr>  <td>Time:</td>  <td>after 50 s 324 ms</td>  <td>after 34 s 723 ms</td>  <td>-</td>  <td>-</td></tr><tr>  <td>Value:</td>  <td style="color: green">108 ms</td>  <td style="color: red">139 ms</td>  <td>116.28 ms</td>  <td>115 ms</td></tr></tbody>', 'explanation': '<b>Info</b>:<br>The connection time is the amount of time it takes to establish a connection between a client and the server. If the connection request between client and server was successful, the client can send further requests. If the connection was not successful, no further requests can be send to the server. The connection time is also part of the latency. <br>', 'description': '<b>Summary</b>:<br>The overall minimum was <span class="important">108 ms</span> (after 50 s 324 ms) and the overall maximum was <span class="important">139 ms</span> (after 34 s 723 ms). The maximum of 139 ms and the minimum of 108 ms were recorded exactly <span class="important">once</span> each.<br>'}});
+
+          
+          $("#connection_timeAnchor").on('click',
+            function () {
+              $("#otherMetrics").css('display', 'inline-block');
+              $("#connection_timeCollapse").css('display', 'inline-block');
+              return true;
+            });
+
+        
+
+          chart("response_time", "Response time", {'unit': 'ms', 'type': 'spline', 'data': [[1568129571642, 672], [1568129572766, 600], [1568129573966, 590], [1568129575165, 602], [1568129576365, 590], [1568129577565, 610], [1568129578766, 597], [1568129579966, 615], [1568129581166, 611], [1568129582365, 590], [1568129583565, 601], [1568129584766, 564], [1568129585966, 613], [1568129587165, 566], [1568129588366, 596], [1568129589566, 588], [1568129590766, 575], [1568129591967, 577], [1568129593167, 631], [1568129594366, 603], [1568129595565, 587], [1568129596766, 581], [1568129597966, 616], [1568129599165, 579], [1568129600365, 597], [1568129601565, 574], [1568129602765, 636], [1568129603966, 573], [1568129605165, 592], [1568129606365, 650], [1568129607565, 606], [1568129608766, 569], [1568129609966, 569], [1568129611165, 634], [1568129612365, 602], [1568129613566, 596], [1568129614766, 571], [1568129615965, 565], [1568129617167, 604], [1568129618367, 669], [1568129619566, 587], [1568129620766, 567], [1568129621966, 560], [1568129623166, 587], [1568129624365, 1334], [1568129625565, 561], [1568129626766, 558], [1568129627965, 1316], [1568129629165, 575], [1568129630366, 620]], 'cumulative': [[558, 2], [560, 4], [561, 6], [564, 8], [565, 10], [566, 12], [567, 14], [569, 16], [569, 18], [571, 20], [573, 22], [574, 24], [575, 26], [575, 28], [577, 30], [579, 32], [581, 34], [587, 36], [587, 38], [587, 40], [588, 42], [590, 44], [590, 46], [590, 48], [592, 50], [596, 52], [596, 54], [597, 56], [597, 58], [600, 60], [601, 62], [602, 64], [602, 66], [603, 68], [604, 70], [606, 72], [610, 74], [611, 76], [613, 78], [615, 80], [616, 82], [620, 84], [631, 86], [634, 88], [636, 90], [650, 92], [669, 94], [672, 96], [1316, 98], [1334, 100]], 'min': {'ts': 1568129626766, 'val': 558, 'f': 1}, 'max': {'ts': 1568129624365, 'val': 1334, 'f': 1}, 'mean': {'val': 624.52}, 'p5': {'val': 561, 'f': 1}, 'p25': {'val': 575, 'f': 2}, 'p50': {'val': 592, 'f': 1}, 'p75': {'val': 611, 'f': 1}, 'p95': {'val': 672, 'f': 1}, 'total': 31226, 'from': 1568129571642, 'to': 1568129630366, 'frequencies': {587: 3, 590: 3, 575: 2}, 'text': {'table': '<thead class="thead"><tr>  <th scope="col"></th>  <th scope="col">Min.</th>  <th scope="col">Max.</th>  <th scope="col">Mean.</th>  <th scope="col">Med.</th></tr></thead><tbody><tr>  <td>Time:</td>  <td>after 55 s 124 ms</td>  <td>after 52 s 723 ms</td>  <td>-</td>  <td>-</td></tr><tr>  <td>Value:</td>  <td style="color: green">558 ms</td>  <td style="color: red">1334 ms</td>  <td>624.52 ms</td>  <td>592 ms</td></tr></tbody>', 'explanation': '<b>Info</b>:<br>Response time is the total amount of time it takes to respond to a request for service. That service can be anything from a memory fetch, to a disk IO, to a complex database query, or loading a full web page. The response time is the sum of the service time and wait time. The service time is the time it takes to do the work you requested. For a given request the service time varies little as the workload increases – to do X amount of work it always takes X amount of time. The wait time is how long the request had to wait in a queue before being serviced and it varies from zero, to a large multiple of the service time.<br>', 'description': '<b>Summary</b>:<br>The overall minimum was <span class="important">558 ms</span> (after 55 s 124 ms) and the overall maximum was <span class="important">1334 ms</span> (after 52 s 723 ms). The maximum of 1334 ms and the minimum of 558 ms were recorded exactly <span class="important">once</span> each.<br>'}});
+
+          
+          $("#response_timeAnchor").on('click',
+            function () {
+              $("#otherMetrics").css('display', 'inline-block');
+              $("#response_timeCollapse").css('display', 'inline-block');
+              return true;
+            });
+
+        
+      });
+
+    
+  </script>
+
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-sm bg-light border-bottom shadow row-12 main-nav">
+
+    <ul class="navbar-nav col">
+
+      <li class="nav-item col main-nav-el">
+        <a class="nav-link text-nowrap" href="/"><div class="main-nav-link">Home</div></a>
+      </li>
+
+      <li class="nav-item col main-nav-el">
+        <a class="nav-link text-nowrap" href="/details"><div class="main-nav-link">Details</div></a>
+      </li>
+
+      <li class="nav-item col main-nav-el">
+        <a class="nav-link text-nowrap" href="/documentation"><div class="main-nav-link">Documentation</div></a>
+      </li>
+
+      <li class="nav-item col main-nav-el">
+        <i><a class="nav-link text-nowrap" href="/my"><div class="main-nav-link">Yours</div></a></i>
+      </li>
+
+    </ul>
+
+  </nav>
+
+
+  <div class="bg-white shadow border-dark report">
+
+
+    <h2 align="center">Perform a load test with 50 users for 1 minute and show me the response time of www.example.com.</h2>
+    <h6 align="center" style="width: 100%; padding: 0 25% 0 25%; color: #777">The following report was created with PerformoBot and the query above.</h6>
+
+    
+
+    <h4>Response time</h4>
+    <div class="v-sec v-big diagram" id="response_time"></div>
+
+      <div class="v-sec v-big">
+
+        
+          <div class="v-float v-medium">
+            <table class="table">
+              
+                <thead class="thead"><tr>  <th scope="col"></th>  <th scope="col">Min.</th>  <th scope="col">Max.</th>  <th scope="col">Mean.</th>  <th scope="col">Med.</th></tr></thead><tbody><tr>  <td>Time:</td>  <td>after 55 s 124 ms</td>  <td>after 52 s 723 ms</td>  <td>-</td>  <td>-</td></tr><tr>  <td>Value:</td>  <td style="color: green">558 ms</td>  <td style="color: red">1334 ms</td>  <td>624.52 ms</td>  <td>592 ms</td></tr></tbody>
+              
+            </table>
+          </div>
+        
+
+        
+        <span class="v-inline v-small">
+          
+            <b>Info</b>:<br>Response time is the total amount of time it takes to respond to a request for service. That service can be anything from a memory fetch, to a disk IO, to a complex database query, or loading a full web page. The response time is the sum of the service time and wait time. The service time is the time it takes to do the work you requested. For a given request the service time varies little as the workload increases – to do X amount of work it always takes X amount of time. The wait time is how long the request had to wait in a queue before being serviced and it varies from zero, to a large multiple of the service time.<br>
+          
+        </span>
+        
+
+        <br>
+
+        
+        <span class="v-inline v-small" style="min-width: 50%; display: inline-block; float: left">
+          
+            <b>Summary</b>:<br>The overall minimum was <span class="important">558 ms</span> (after 55 s 124 ms) and the overall maximum was <span class="important">1334 ms</span> (after 52 s 723 ms). The maximum of 1334 ms and the minimum of 558 ms were recorded exactly <span class="important">once</span> each.<br>
+          
+        </span>
+        
+
+      </div>
+
+    
+
+
+    <h4>Analysis Summary</h4>
+
+    <div class="v-sec v-big">
+
+      <div class="v-float v-small">
+        <table class="table">
+          <tbody>
+          <tr>
+            <td>Analysis Tool:</td>
+            <td><a href="https://jmeter.apache.org/" target="_">JMeter</a></td>
+          </tr>
+          <tr>
+            <td>Duration:</td>
+            <td>58 s 724 ms</td>
+          </tr>
+          <tr>
+            <td>Collected samples:</td>
+            <td>50</td>
+          </tr>
+          <tr>
+            <td>Metrics:</td>
+            <td>
+
+              
+                <a href="#elapsed_timeCollapse" id="elapsed_timeAnchor">elapsed time</a>, <a href="#request_statusCollapse" id="request_statusAnchor">request status</a>, <a href="#server_statusCollapse" id="server_statusAnchor">server status</a>, <a href="#received_trafficCollapse" id="received_trafficAnchor">received traffic</a>, <a href="#latencyCollapse" id="latencyAnchor">latency</a>, <a href="#connection_timeCollapse" id="connection_timeAnchor">connection time</a>, <a href="#response_timeCollapse" id="response_timeAnchor">response time</a>
+              
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      
+        <span class="v-inline v-small"><b>Experiment summary</b>:<br>From 10.09.2019 15:32:51  to 10.09.2019 15:33:50 <span class="important">50 values</span> were recorded. JMeter was used as the load testing tool. During the execution of this experiment (58 s 724 ms) <span class="important">50 virtual users</span> produced load to the tested domain (<span class="important">www.example.com</span>). <br></span>
+      
+      <br>
+      
+        <span class="v-inline v-small"><b>Tool description</b>:<br>Apache JMeter is an Apache project that can be used as a load testing tool for analyzing and measuring the performance of a variety of services, with a focus on web applications.
+JMeter can be used as a unit-test tool for JDBC database connections, FTP, LDAP, Webservices, JMS, HTTP, generic TCP connections and OS native processes. One can also configure JMeter as a monitor, although this is typically... <a href="https://en.wikipedia.org/wiki/Apache_JMeter" target="_">continue reading<sup title="Taken from wikipedia.org">[1]</sup></a>.<br></span>
+      
+
+    </div>
+
+    <h4 class="link" onclick="toggleVisibility($('#otherMetrics'), 0, true)">Other metrics</h4>
+    <div class="hidden pl-5" id="otherMetrics">
+      
+
+        
+
+        <h4 class="link" onclick="toggleVisibility($('#elapsed_timeCollapse'), 0, true)">Elapsed time</h4>
+
+        <div class="v-large hidden" id="elapsed_timeCollapse">
+
+          <div class="v-sec v-big diagram" id="elapsed_time"></div>
+
+          <div class="v-sec v-big">
+
+            
+            <div class="v-float v-medium">
+              <table class="table">
+                
+                  <thead class="thead"><tr>  <th scope="col"></th>  <th scope="col">Min.</th>  <th scope="col">Max.</th>  <th scope="col">Mean.</th>  <th scope="col">Med.</th></tr></thead><tbody><tr>  <td>Time:</td>  <td>after 55 s 124 ms</td>  <td>after 52 s 723 ms</td>  <td>-</td>  <td>-</td></tr><tr>  <td>Value:</td>  <td style="color: green">224 ms</td>  <td style="color: red">607 ms</td>  <td>254.56 ms</td>  <td>238 ms</td></tr></tbody>
+                
+              </table>
+            </div>
+            
+
+            
+            <span class="v-inline v-small">
+              
+                <b>Info</b>:<br>The elapsed time is the amount of time it takes to send the first request until the last response is received. This metric does not include the time a client is executing code.<br>
+              
+            </span>
+            
+
+            <br>
+
+            
+            <span class="v-inline v-small">
+              
+                <b>Summary</b>:<br>The overall minimum was <span class="important">224 ms</span> (after 55 s 124 ms) and the overall maximum was <span class="important">607 ms</span> (after 52 s 723 ms). The maximum of 607 ms and the minimum of 224 ms were recorded exactly <span class="important">once</span> each.<br>
+              
+            </span>
+            
+
+          </div>
+
+        </div>
+
+        
+
+      
+
+        
+
+        <h4 class="link" onclick="toggleVisibility($('#request_statusCollapse'), 0, true)">Request status</h4>
+
+        <div class="v-large hidden" id="request_statusCollapse">
+
+          <div class="v-sec v-big diagram" id="request_status"></div>
+
+          <div class="v-sec v-big">
+
+            
+
+            
+            <span class="v-inline v-small" style="min-width: 50%; display: inline-block; float: left">
+              
+                <b>Info</b>:<br>If a request does not reach the server or is refused by it, the request was not successful. An unsuccessful request can contain the reason of the refusal as plain text in the response text. Another reason is a faulty connection to the server.<br>
+              
+            </span>
+            
+
+            <br>
+
+            
+            <span class="v-inline v-small" style="min-width: 50%; display: inline-block; float: left">
+              
+                <b>Summary</b>: From a total of <u>50</u> requests 100% (50) were successful.<br><br>
+              
+            </span>
+            
+
+          </div>
+
+        </div>
+
+        
+
+      
+
+        
+
+        <h4 class="link" onclick="toggleVisibility($('#server_statusCollapse'), 0, true)">Server status</h4>
+
+        <div class="v-large hidden" id="server_statusCollapse">
+
+          <div class="v-sec v-big diagram" id="server_status"></div>
+
+          <div class="v-sec v-big">
+
+            
+
+            
+            <span class="v-inline v-small" style="min-width: 50%; display: inline-block; float: left">
+              
+                <b>Info</b>:<br>If a request does not reach the server or is refused by it, the request was not successful. An unsuccessful request can contain the reason of the refusal as plain text in the response text. Another reason is a faulty connection to the server.<br>
+              
+            </span>
+            
+
+            <br>
+
+            
+            <span class="v-inline v-small" style="min-width: 50%; display: inline-block; float: left">
+              
+                <b>Summary</b>: The system was running for 58 seconds without an incident.<br><br>
+              
+            </span>
+            
+
+          </div>
+
+        </div>
+
+        
+
+      
+
+        
+
+        <h4 class="link" onclick="toggleVisibility($('#received_trafficCollapse'), 0, true)">Received traffic</h4>
+
+        <div class="v-large hidden" id="received_trafficCollapse">
+
+          <div class="v-sec v-big diagram" id="received_traffic"></div>
+
+          <div class="v-sec v-big">
+
+            
+            <div class="v-float v-medium">
+              <table class="table">
+                
+                  <thead class="thead"><tr>  <th scope="col"></th>  <th scope="col">Min.</th>  <th scope="col">Max.</th>  <th scope="col">Mean.</th>  <th scope="col">Med.</th></tr></thead><tbody><tr>  <td>Time:</td>  <td>at the beginning</td>  <td>after 4 s 723 ms</td>  <td>-</td>  <td>-</td></tr><tr>  <td>Value:</td>  <td style="color: green">1592 bytes per request</td>  <td style="color: red">1614 bytes per request</td>  <td>1600.64 bytes per request</td>  <td>1592 bytes per request</td></tr></tbody>
+                
+              </table>
+            </div>
+            
+
+            
+            <span class="v-inline v-small">
+              
+                <b>Info</b>:<br>To perform a request, it is necessary to exchange data between client and server. This data consists of header data and meta information, which is needed by the server. The amount of exchanged information is measured in bytes.<br>
+              
+            </span>
+            
+
+            <br>
+
+            
+            <span class="v-inline v-small">
+              
+                <b>Summary</b>:<br>The overall minimum was <span class="important">1592 bytes per request</span> (at the beginning) and the overall maximum was <span class="important">1614 bytes per request</span> (after 4 s 723 ms). The maximum of 1614 bytes per request was recorded <span class="important">9 times</span> while the minimum of 1592 bytes per request was recorded <span class="important">25 times</span>.<br>
+              
+            </span>
+            
+
+          </div>
+
+        </div>
+
+        
+
+      
+
+        
+
+        <h4 class="link" onclick="toggleVisibility($('#latencyCollapse'), 0, true)">Latency</h4>
+
+        <div class="v-large hidden" id="latencyCollapse">
+
+          <div class="v-sec v-big diagram" id="latency"></div>
+
+          <div class="v-sec v-big">
+
+            
+            <div class="v-float v-medium">
+              <table class="table">
+                
+                  <thead class="thead"><tr>  <th scope="col"></th>  <th scope="col">Min.</th>  <th scope="col">Max.</th>  <th scope="col">Mean.</th>  <th scope="col">Med.</th></tr></thead><tbody><tr>  <td>Time:</td>  <td>after 55 s 124 ms</td>  <td>after 52 s 723 ms</td>  <td>-</td>  <td>-</td></tr><tr>  <td>Value:</td>  <td style="color: green">224 ms</td>  <td style="color: red">606 ms</td>  <td>253.68 ms</td>  <td>237 ms</td></tr></tbody>
+                
+              </table>
+            </div>
+            
+
+            
+            <span class="v-inline v-small">
+              
+                <b>Info</b>:<br>Latency is the amount of time a message takes to traverse a system. In a computer network, it is an expression of how much time it takes for a packet of data to get from one designated point to another. It is measured as the time required for a request to be sent to the server and returned to its sender. Latency depends on the speed of the transmission medium  and the delays in the transmission by devices along the way. A low latency indicates a high network efficiency.<br>
+              
+            </span>
+            
+
+            <br>
+
+            
+            <span class="v-inline v-small" style="min-width: 50%; display: inline-block; float: left">
+              
+                <b>Summary</b>:<br>The overall minimum was <span class="important">224 ms</span> (after 55 s 124 ms) and the overall maximum was <span class="important">606 ms</span> (after 52 s 723 ms). The maximum of 606 ms and the minimum of 224 ms were recorded exactly <span class="important">once</span> each.<br>
+              
+            </span>
+            
+
+          </div>
+
+        </div>
+
+        
+
+      
+
+        
+
+        <h4 class="link" onclick="toggleVisibility($('#connection_timeCollapse'), 0, true)">Connection time</h4>
+
+        <div class="v-large hidden" id="connection_timeCollapse">
+
+          <div class="v-sec v-big diagram" id="connection_time"></div>
+
+          <div class="v-sec v-big">
+
+            
+            <div class="v-float v-medium">
+              <table class="table">
+                
+                  <thead class="thead"><tr>  <th scope="col"></th>  <th scope="col">Min.</th>  <th scope="col">Max.</th>  <th scope="col">Mean.</th>  <th scope="col">Med.</th></tr></thead><tbody><tr>  <td>Time:</td>  <td>after 50 s 324 ms</td>  <td>after 34 s 723 ms</td>  <td>-</td>  <td>-</td></tr><tr>  <td>Value:</td>  <td style="color: green">108 ms</td>  <td style="color: red">139 ms</td>  <td>116.28 ms</td>  <td>115 ms</td></tr></tbody>
+                
+              </table>
+            </div>
+            
+
+            
+            <span class="v-inline v-small">
+              
+                <b>Info</b>:<br>The connection time is the amount of time it takes to establish a connection between a client and the server. If the connection request between client and server was successful, the client can send further requests. If the connection was not successful, no further requests can be send to the server. The connection time is also part of the latency. <br>
+              
+            </span>
+            
+
+            <br>
+
+            
+            <span class="v-inline v-small" style="min-width: 50%; display: inline-block; float: left">
+              
+                <b>Summary</b>:<br>The overall minimum was <span class="important">108 ms</span> (after 50 s 324 ms) and the overall maximum was <span class="important">139 ms</span> (after 34 s 723 ms). The maximum of 139 ms and the minimum of 108 ms were recorded exactly <span class="important">once</span> each.<br>
+              
+            </span>
+            
+
+          </div>
+
+        </div>
+
+        
+
+      
+
+        
+
+      
+    </div>
+
+  </div>
+
+  
+
+</body>
+</html>
