@@ -19,7 +19,16 @@
 
     <script>
         var counterEndDate;
-        const surveyLink = "https://forms.gle/2857y7fMzexrkXHk6";
+	const id = random_id();
+	const surveyLink = "https://docs.google.com/forms/d/e/1FAIpQLSdqrDNt_Jx0F5SGGfq-E4UxNVVlxQPpO7OBYU1b7nhCegVobg/viewform?usp=pp_url&entry.378572693="+ id;
+
+	function random_id() {
+ 		 return (
+   		 Number(String(Math.random()).slice(2)) + 
+   		 Date.now() + 
+   		 Math.round(performance.now())
+  		).toString(10).slice(0,5);
+	}
 
         function startCounter() {
             document.getElementById("counter").innerHTML = "8:00";
@@ -34,6 +43,10 @@
 
                 var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+		if(seconds < 10){
+			seconds = "0" + seconds;
+		}
 
                 document.getElementById("counter").innerHTML = minutes + ":" + seconds;
 
@@ -73,19 +86,14 @@
                     </div>
                     <br>
                     <p align="justify">
-                        Terrible news, next week is the registration period of the university courses! <br><br>
-                        We expect an
-                        unusually high number of concurrent users (~500) to the web service Registr@tion, which handles
-                        the registrations, at the same time. The service is available under
-                        https://registration.uni-stuttgart.edu/login. <br><br> We are not sure whether we provided
-                        enough
-                        resources to our servers to cope with that amount of load.
-                        You have been given the task to investigate if our servers can handle this and if they will stay
-                        available throughout this whole registration period. Use Performobot to investigate the problem.
-                        It will support you in evaluating the performance of Registr@tion, so feel free to ask it for
-                        help if you are stuck. <br> <br>
+                        Terrible news, next week is the registration period for the university courses! <br><br>
+                        We expect an unusually high number of concurrent users (~500) to the Registr@tion web service. 			The service is available under https://registration.uni-stuttgart.edu/login. <br><br> We are 			not sure whether we provided enough resources to our servers to cope with that amount of load.
+                        You have been given the task to investigate whether our servers can handle this load and 				whether they will stay available throughout this whole registration period. Use PerformoBot to 				investigate the problem.
+                        PerformoBot will support you in evaluating the performance of Registr@tion, so feel free to ask 			PerformoBot for help if you are stuck. <br> <br>
 
-                        If you don't know what to say, just start with a simple "Hi". <br><br>
+                        Please start your conversation by typing in your survey id: <script type="text/javascript">
+        document.write(id)
+      </script>. <br><br>
 
                         Please click the button below to continue with the survey after you have completed the task.
                     </p>
