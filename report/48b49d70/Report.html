@@ -241,7 +241,7 @@
       </div>
 
       
-        <span class="v-inline v-small"><b>Experiment summary</b>:<br>From 08.04.2019 13:30:00  to 08.04.2019 13:34:59 <span class="important">500 values</span> were recorded. JMeter was used as the load testing tool. During the execution of this experiment (4 m 59 s 322 ms) <span class="important">500 virtual users</span> produced load to the tested domain (<span class="important">www.example.com</span>). <br></span>
+        <span class="v-inline v-small"><b>Experiment summary</b>:<br>From 08.04.2019 13:30:00  to 08.04.2019 13:34:59 <span class="important">500 values</span> were recorded. JMeter was used as the load testing tool. During the execution of this experiment (4 m 59 s 322 ms) <span class="important">500 virtual users</span> produced load to the tested domain (<span class="important">https://registration.uni-stuttgart.edu/login</span>). <br></span>
       
       <br>
       
@@ -251,15 +251,15 @@ JMeter can be used as a unit-test tool for JDBC database connections, FTP, LDAP,
 
     </div>
 
-    <h4 class="link" onclick="toggleVisibility($('#otherMetrics'), 0, true)">Other metrics</h4>
+    <h4 class="link vizard-collapse" onclick="toggleVisibility($('#otherMetrics'), 0, true, this)">Other metrics</h4>
     <div class="hidden pl-5" id="otherMetrics">
       
 
         
 
-        <h4 class="link" onclick="toggleVisibility($('#elapsed_timeCollapse'), 0, true)">Elapsed time</h4>
+        <h4 class="link vizard-collapse" onclick="toggleVisibility($('#elapsed_timeCollapse'), 0, true, this)">Elapsed time</h4>
 
-        <div class="v-large hidden" id="elapsed_timeCollapse">
+        <div class="v-large hidden vizard-metric-collapse" id="elapsed_timeCollapse">
 
           <div class="v-sec v-big diagram" id="elapsed_time"></div>
 
@@ -303,9 +303,9 @@ JMeter can be used as a unit-test tool for JDBC database connections, FTP, LDAP,
 
         
 
-        <h4 class="link" onclick="toggleVisibility($('#request_statusCollapse'), 0, true)">Request status</h4>
+        <h4 class="link vizard-collapse" onclick="toggleVisibility($('#request_statusCollapse'), 0, true, this)">Request status</h4>
 
-        <div class="v-large hidden" id="request_statusCollapse">
+        <div class="v-large hidden vizard-metric-collapse" id="request_statusCollapse">
 
           <div class="v-sec v-big diagram" id="request_status"></div>
 
@@ -341,9 +341,9 @@ JMeter can be used as a unit-test tool for JDBC database connections, FTP, LDAP,
 
         
 
-        <h4 class="link" onclick="toggleVisibility($('#received_trafficCollapse'), 0, true)">Received traffic</h4>
+        <h4 class="link vizard-collapse" onclick="toggleVisibility($('#received_trafficCollapse'), 0, true, this)">Received traffic</h4>
 
-        <div class="v-large hidden" id="received_trafficCollapse">
+        <div class="v-large hidden vizard-metric-collapse" id="received_trafficCollapse">
 
           <div class="v-sec v-big diagram" id="received_traffic"></div>
 
@@ -387,9 +387,9 @@ JMeter can be used as a unit-test tool for JDBC database connections, FTP, LDAP,
 
         
 
-        <h4 class="link" onclick="toggleVisibility($('#latencyCollapse'), 0, true)">Latency</h4>
+        <h4 class="link vizard-collapse" onclick="toggleVisibility($('#latencyCollapse'), 0, true, this)">Latency</h4>
 
-        <div class="v-large hidden" id="latencyCollapse">
+        <div class="v-large hidden vizard-metric-collapse" id="latencyCollapse">
 
           <div class="v-sec v-big diagram" id="latency"></div>
 
@@ -433,9 +433,9 @@ JMeter can be used as a unit-test tool for JDBC database connections, FTP, LDAP,
 
         
 
-        <h4 class="link" onclick="toggleVisibility($('#connection_timeCollapse'), 0, true)">Connection time</h4>
+        <h4 class="link vizard-collapse" onclick="toggleVisibility($('#connection_timeCollapse'), 0, true, this)">Connection time</h4>
 
-        <div class="v-large hidden" id="connection_timeCollapse">
+        <div class="v-large hidden vizard-metric-collapse" id="connection_timeCollapse">
 
           <div class="v-sec v-big diagram" id="connection_time"></div>
 
@@ -479,9 +479,9 @@ JMeter can be used as a unit-test tool for JDBC database connections, FTP, LDAP,
 
         
 
-        <h4 class="link" onclick="toggleVisibility($('#response_timeCollapse'), 0, true)">Response time</h4>
+        <h4 class="link vizard-collapse" onclick="toggleVisibility($('#response_timeCollapse'), 0, true, this)">Response time</h4>
 
-        <div class="v-large hidden" id="response_timeCollapse">
+        <div class="v-large hidden vizard-metric-collapse" id="response_timeCollapse">
 
           <div class="v-sec v-big diagram" id="response_time"></div>
 

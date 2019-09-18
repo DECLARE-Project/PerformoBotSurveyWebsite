@@ -1,13 +1,17 @@
-function toggleVisibility(el, timeout = 0, soft = false) {
+function toggleVisibility(el, timeout = 0, soft = false, parent=undefined) {
   let e = $(el);
+  let p = $(parent, "h4");
 
   if (timeout === 0) {
     if (e.is(":hidden")) {
       e.show();
       if (soft)
         e.css('display', 'inline-block');
+        parent.classList += " vizard-collapse-hide";
+        console.log("show")
     } else
       e.hide();
+      parent.classList.remove("vizard-collapse-hide");
   } else {
     if (e.is(":hidden"))
       e.delay(timeout).show();
