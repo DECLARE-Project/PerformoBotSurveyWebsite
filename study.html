@@ -21,6 +21,16 @@
         function showStudy() {
             window.open("study_task.html");
         }
+
+        function checkbox_clicked(cb) {
+            let startBtn = document.getElementById("start-study-id");
+
+            if (cb.checked) {
+                startBtn.disabled = false;
+            } else {
+                startBtn.disabled = true;
+            }
+        }
     </script>
 </head>
 
@@ -56,7 +66,8 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="textbox">
                     <h2>Help us to evaluate PerformoBot!</h2>                    
-                    <p>Thank you for participating in our study and helping us to evaluate PerformoBot! The study
+                    <p>
+                        Thank you for participating in our study and helping us to evaluate PerformoBot! The study
                         consists of two parts and should take around 20 minutes.<br> <br>
                         As soon as you press the <b>Start</b> button below, you will be presented with a task in which
                         you have to evaluate the performance of an exemplary software system with the help of
@@ -78,8 +89,36 @@
                     </p>
                     <br>
                     <br>
+                    <div class="consent-form-container">
+                        <label for="consent-form" id="consent-form-label">Consent Form</label>
+                        <textarea id="consent-form" readonly>
+Using Chatbots to Facilitate Performance Evaluations
+
+Please read this form carefully.
+Please contact the investigator if you have any questions.
+
+Principal Investigator (Name and First Name): van Hoorn, André
+
+Information:
+I participate in this study on a voluntary basis an can withdraw from the study at any time witout giving reasons and without any negative consequences.
+
+I have been informed in writing about the aims and the procedures of the study, the advantages and disadvantages, as well as potential risks.
+
+I was given sufficient time to make a decision about participating in the study.
+
+By checking the checkbox below, I certify that I fulfill the requirements for participating in the study.
+
+I agree that the responsible investigators and/or the members of the Ethics Commission have access to the original data under strictly observed rules of confidentiality.
+
+I am aware that during the study I have to comply with the requirements and limitations described in the description above.
+                        </textarea>
+                        <br>
+                        <input type="checkbox" name="consent" value="consent" id="consent-checkbox" onclick="checkbox_clicked(this);">
+                        <label for="consent-checkbox" id="checkbox-label">I have read the consent form above and agree to the terms of the study</label>
+                    </div>                           
+                    <br>                             
                     <button type="button" id="start-study-id" class="btn btn-primary btn-start-study"
-                        onclick="showStudy()">Start</button>
+                        onclick="showStudy()" disabled>Start</button>
                 </div>
             </div>
         </div>
