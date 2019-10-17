@@ -161,3 +161,7 @@ textarea {
 #checkbox-label {
     font-weight: normal;
 }
+
+.disclaimer {
+    color: red;
+}
